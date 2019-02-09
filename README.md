@@ -42,7 +42,7 @@ The game was designed to be played on MSX1 computers with at least 16KB of RAM. 
 
 ## Notes:
 
-Some notes and useful links I used when coding XSpelunker
+Some notes and useful links I used when coding XRacing
 
 * There is a "build" script in the home folder. Use it to re-build the game from sources (make sure to run "generate-data" first though, to generate all the necessary data files)
 * To measure code execution time I used: http://msx.jannone.org/bit/
