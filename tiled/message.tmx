@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="32" height="4" tilewidth="8" tileheight="8" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" name="scoreboard-tiles" tilewidth="8" tileheight="8" tilecount="256" columns="16">
+  <image source="tiles-scoreboard-initial.png" width="128" height="128"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="32" height="4">
+  <data encoding="csv">
+36,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,
+20,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,20,
+104,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,18,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+</map>

@@ -1,0 +1,168 @@
+# generate the graphics data:
+java -cp java/MSX.jar:java/jdom.jar msxracing.GenerateMinimaps
+java -cp java/MSX.jar msxracing.GenerateTileLoadingCode
+
+# Grass tiles:
+java -jar java/glass-0.5.jar src/gfx/tiles-common.asm src/gfx/tiles-common.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tiles-common.bin src/gfx/tiles-common.plt
+java -jar java/glass-0.5.jar src/gfx/tiles-extra0.asm src/gfx/tiles-extra0.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tiles-extra0.bin src/gfx/tiles-extra0.plt
+java -jar java/glass-0.5.jar src/gfx/tiles-extra1.asm src/gfx/tiles-extra1.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tiles-extra1.bin src/gfx/tiles-extra1.plt
+
+# Urban tiles:
+java -jar java/glass-0.5.jar src/gfx/tiles-urban-common.asm src/gfx/tiles-urban-common.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tiles-urban-common.bin src/gfx/tiles-urban-common.plt
+java -jar java/glass-0.5.jar src/gfx/tiles-urban-extra0.asm src/gfx/tiles-urban-extra0.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tiles-urban-extra0.bin src/gfx/tiles-urban-extra0.plt
+java -jar java/glass-0.5.jar src/gfx/tiles-urban-extra1.asm src/gfx/tiles-urban-extra1.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tiles-urban-extra1.bin src/gfx/tiles-urban-extra1.plt
+java -jar java/glass-0.5.jar src/gfx/tiles-urban-extra2.asm src/gfx/tiles-urban-extra2.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tiles-urban-extra2.bin src/gfx/tiles-urban-extra2.plt
+java -jar java/glass-0.5.jar src/gfx/tiles-urban-extra3.asm src/gfx/tiles-urban-extra3.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tiles-urban-extra3.bin src/gfx/tiles-urban-extra3.plt
+
+java -jar java/glass-0.5.jar src/gfx/tileTypes.asm src/gfx/tileTypes.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tileTypes.bin src/gfx/tileTypes.plt
+java -jar java/glass-0.5.jar src/gfx/tileTypes-urban.asm src/gfx/tileTypes-urban.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tileTypes-urban.bin src/gfx/tileTypes-urban.plt
+
+java -jar java/glass-0.5.jar src/gfx/base-sprites.asm src/gfx/base-sprites.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/base-sprites.bin src/gfx/base-sprites.plt
+
+java -jar java/glass-0.5.jar src/gfx/agent-sprites.asm src/gfx/agent-sprites.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/agent-sprites.bin src/gfx/agent-sprites.plt
+
+java -cp java/MSX.jar PNGtoMSX.ConvertPatternsToAssembler gfx/tiles-base.png > src/gfx/tiles-base.asm
+java -jar java/glass-0.5.jar src/gfx/tiles-base.asm src/gfx/tiles-base.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/tiles-base.bin src/gfx/tiles-base.plt
+
+java -cp java/MSX.jar PNGtoMSX.GenerateAssemblerPatternPatch gfx/tiles-base.png gfx/tiles-scoreboard.png base_game > src/gfx/patch-base-game.asm
+java -jar java/glass-0.5.jar src/gfx/patch-base-game.asm src/gfx/patch-base-game.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/patch-base-game.bin src/gfx/patch-base-game.plt
+
+java -cp java/MSX.jar PNGtoMSX.GenerateAssemblerPatternPatch gfx/tiles-base.png gfx/tiles-race-finished.png base_title > src/gfx/patch-base-race-finished.asm
+java -jar java/glass-0.5.jar src/gfx/patch-base-race-finished.asm src/gfx/patch-base-race-finished.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/patch-base-race-finished.bin src/gfx/patch-base-race-finished.plt
+
+java -cp java/MSX.jar PNGtoMSX.GenerateAssemblerPatternPatch gfx/tiles-base.png gfx/tiles-title.png base_title > src/gfx/patch-base-title.asm
+java -jar java/glass-0.5.jar src/gfx/patch-base-title.asm src/gfx/patch-base-title.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/patch-base-title.bin src/gfx/patch-base-title.plt
+
+
+java -jar java/glass-0.5.jar src/gfx/title-data.asm src/gfx/title-data.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/title-data.bin src/gfx/title-data.plt
+
+java -jar java/glass-0.5.jar src/races.asm src/races.bin
+java -cp java/MSX.jar utils.Pletter src/races.bin src/races.plt
+
+java -jar java/glass-0.5.jar src/rom2ram.asm src/rom2ram.bin
+java -cp java/MSX.jar utils.Pletter src/rom2ram.bin src/rom2ram.plt
+
+java -jar java/glass-0.5.jar src/gfx/car1.asm src/gfx/car1.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/car1.bin src/gfx/car1.plt
+
+java -jar java/glass-0.5.jar src/gfx/car2.asm src/gfx/car2.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/car2.bin src/gfx/car2.plt
+
+java -jar java/glass-0.5.jar src/gfx/car3.asm src/gfx/car3.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/car3.bin src/gfx/car3.plt
+
+
+java -cp java/MSX.jar:java/jdom.jar msxracing.TiledToAssembler tiled/scoreboard.tmx > src/gfx/scoreboard.asm
+java -jar java/glass-0.5.jar src/gfx/scoreboard.asm src/gfx/scoreboard.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/scoreboard.bin src/gfx/scoreboard.plt
+
+java -cp java/MSX.jar:java/jdom.jar msxracing.TiledToAssembler tiled/confirmation.tmx > src/gfx/confirmation.asm
+java -jar java/glass-0.5.jar src/gfx/confirmation.asm src/gfx/confirmation.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/confirmation.bin src/gfx/confirmation.plt
+
+java -cp java/MSX.jar:java/jdom.jar msxracing.TiledToAssembler tiled/message.tmx > src/gfx/message.asm
+java -jar java/glass-0.5.jar src/gfx/message.asm src/gfx/message.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/message.bin src/gfx/message.plt
+
+java -cp java/MSX.jar:java/jdom.jar msxracing.TiledToAssembler tiled/race-finished-screen.tmx > src/gfx/race-finished-screen.asm
+java -jar java/glass-0.5.jar src/gfx/race-finished-screen.asm src/gfx/race-finished-screen.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/race-finished-screen.bin src/gfx/race-finished-screen.plt
+
+
+# flag animation:
+java -jar java/glass-0.5.jar src/gfx/flag-patterns.asm src/gfx/flag-patterns.bin
+java -jar java/glass-0.5.jar src/gfx/flag-nametables.asm src/gfx/flag-nametables.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/flag-patterns.bin src/gfx/flag-patterns.plt
+java -cp java/MSX.jar utils.Pletter src/gfx/flag-nametables.bin src/gfx/flag-nametables.plt
+
+# menu screens:
+java -cp java/MSX.jar:java/jdom.jar msxracing.TiledToAssembler tiled/season-screen.tmx > src/gfx/season-screen.asm
+java -jar java/glass-0.5.jar src/gfx/season-screen.asm src/gfx/season-screen.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/season-screen.bin src/gfx/season-screen.plt
+
+java -cp java/MSX.jar:java/jdom.jar msxracing.TiledToAssembler tiled/carmarket-screen.tmx > src/gfx/carmarket-screen.asm
+java -jar java/glass-0.5.jar src/gfx/carmarket-screen.asm src/gfx/carmarket-screen.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/carmarket-screen.bin src/gfx/carmarket-screen.plt
+
+java -cp java/MSX.jar:java/jdom.jar msxracing.TiledToAssembler tiled/standings-screen.tmx > src/gfx/standings-screen.asm
+java -jar java/glass-0.5.jar src/gfx/standings-screen.asm src/gfx/standings-screen.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/standings-screen.bin src/gfx/standings-screen.plt
+
+java -cp java/MSX.jar:java/jdom.jar msxracing.TiledToAssembler tiled/races-screen.tmx > src/gfx/races-screen.asm
+java -jar java/glass-0.5.jar src/gfx/races-screen.asm src/gfx/races-screen.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/races-screen.bin src/gfx/races-screen.plt
+
+java -jar java/glass-0.5.jar src/agent-texts.asm src/agent-texts.bin
+java -cp java/MSX.jar utils.Pletter src/agent-texts.bin src/agent-texts.plt
+
+# generate the maps:
+java -jar java/glass-0.5.jar src/maps/track1-meta.asm src/maps/track1.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track1.bin src/maps/track1.plt
+
+java -jar java/glass-0.5.jar src/maps/track2-meta.asm src/maps/track2.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track2.bin src/maps/track2.plt
+
+java -jar java/glass-0.5.jar src/maps/track3-urban-meta.asm src/maps/track3-urban.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track3-urban.bin src/maps/track3-urban.plt
+
+java -jar java/glass-0.5.jar src/maps/track4-urban-meta.asm src/maps/track4-urban.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track4-urban.bin src/maps/track4-urban.plt
+
+java -jar java/glass-0.5.jar src/maps/track5-meta.asm src/maps/track5.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track5.bin src/maps/track5.plt
+
+java -jar java/glass-0.5.jar src/maps/track6-urban-meta.asm src/maps/track6-urban.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track6-urban.bin src/maps/track6-urban.plt
+
+java -jar java/glass-0.5.jar src/maps/track7-meta.asm src/maps/track7.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track7.bin src/maps/track7.plt
+
+java -jar java/glass-0.5.jar src/maps/track8-urban-meta.asm src/maps/track8-urban.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track8-urban.bin src/maps/track8-urban.plt
+
+java -jar java/glass-0.5.jar src/maps/track9-meta.asm src/maps/track9.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track9.bin src/maps/track9.plt
+
+java -jar java/glass-0.5.jar src/maps/track10-meta.asm src/maps/track10.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track10.bin src/maps/track10.plt
+
+java -jar java/glass-0.5.jar src/maps/track11-meta.asm src/maps/track11.bin
+java -cp java/MSX.jar utils.Pletter src/maps/track11.bin src/maps/track11.plt
+
+# ending:
+java -jar java/glass-0.5.jar src/gfx/ending-data.asm src/gfx/ending-data.bin
+java -cp java/MSX.jar utils.Pletter src/gfx/ending-data.bin src/gfx/ending-data.plt
+
+
+# music:
+java -jar java/glass-0.5.jar src/music/gameover-song.asm src/music/gameover-song.bin
+java -cp java/MSX.jar utils.Pletter src/music/gameover-song.bin src/music/gameover-song.plt
+
+java -jar java/glass-0.5.jar src/music/gamestart-song.asm src/music/gamestart-song.bin
+java -cp java/MSX.jar utils.Pletter src/music/gamestart-song.bin src/music/gamestart-song.plt
+
+java -jar java/glass-0.5.jar src/music/ending-song.asm src/music/ending-song.bin
+java -cp java/MSX.jar utils.Pletter src/music/ending-song.bin src/music/ending-song.plt
+
+java -jar java/glass-0.5.jar src/music/title-song.asm src/music/title-song.bin
+java -cp java/MSX.jar utils.Pletter src/music/title-song.bin src/music/title-song.plt
+
+java -jar java/glass-0.5.jar src/music/ingame1-song.asm src/music/ingame1-song.bin
+java -cp java/MSX.jar utils.Pletter src/music/ingame1-song.bin src/music/ingame1-song.plt
