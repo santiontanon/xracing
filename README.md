@@ -16,9 +16,9 @@ XRacing is a tribute to a few of the car racing games I loved as a kid. In parti
 
 Screenshots (of version 1.0):
 
-<img src="https://raw.githubusercontent.com/santiontanon/xracing/raw/master/media/ss1.png" alt="title" width="400"/> <img src="https://raw.githubusercontent.com/santiontanon/xracing/raw/master/media/ss2.png" alt="in game 1" width="400"/>
+<img src="https://raw.githubusercontent.com/santiontanon/xracing/master/media/ss1.png" alt="title" width="400"/> <img src="https://raw.githubusercontent.com/santiontanon/xracing/master/media/ss2.png" alt="in game 1" width="400"/>
 
-<img src="https://raw.githubusercontent.com/santiontanon/xracing/raw/master/media/ss3.png" alt="in game 2" width="400"/> <img src="https://raw.githubusercontent.com/santiontanon/xracing/raw/master/media/ss4.png" alt="in game 3" width="400"/>
+<img src="https://raw.githubusercontent.com/santiontanon/xracing/master/media/ss3.png" alt="in game 2" width="400"/> <img src="https://raw.githubusercontent.com/santiontanon/xracing/master/media/ss4.png" alt="in game 3" width="400"/>
 
 You can see a video of the game at: https://www.youtube.com/watch?v=5P_Qffb5mr8
 
@@ -26,7 +26,7 @@ XRacing is an arcade-simulation racing game where you play the role of a driver 
 
 The following image show the basic elements of the game screen, and the game controls:
 
-<img src="https://raw.githubusercontent.com/santiontanon/xracing/raw/master/media/xracing-instructions.png" alt="in game screen" width="800"/>
+<img src="https://raw.githubusercontent.com/santiontanon/xracing/master/media/xracing-instructions.png" alt="in game screen" width="800"/>
 
 Pay special attention to:
 * To complete the game, you will have to beat three seasons: stock cars (4 races), endurance cars (4 races) and Formula 1 cars (7 races)!
