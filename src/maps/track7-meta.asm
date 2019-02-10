@@ -14,14 +14,14 @@ semaphore_start_position:
 track_rails:
     db SCROLL_RAIL_UP, 0, 1
     db SCROLL_RAIL_RIGHT, 32, 0
-    db SCROLL_RAIL_DOWN, 20, 0
     db SCROLL_RAIL_DOWN, 48, 0
     db SCROLL_RAIL_RIGHT, 46, 0
     db SCROLL_RAIL_DOWN, 63, 0
     db SCROLL_RAIL_LEFT, 0, 0
-    db SCROLL_RAIL_UP, 48, 0
     db SCROLL_RAIL_UP, 13, 1
     db SCROLL_RAIL_LOOP, 0, 0
+    db 0, 0, 0 ; rail filler
+    db 0, 0, 0 ; rail filler
     db 0, 0, 0 ; rail filler
     db 0, 0, 0 ; rail filler
 track_waypoints:

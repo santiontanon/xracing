@@ -34,7 +34,7 @@ race_stock_3:
     db 24 ; price money (in $100s)
     db 1,4,7  ; opponents
     db 0,0,1         ; opponent cars
-    db 58, 60, 60   ; handycaps
+    db 56, 60, 60   ; handycaps
     db 0, 1, 3, 0, 0, 2, 0  ; points that drivers not in this race get after playing this race
     db "A RACE OF DUBIOUS LEGAL "   ; description 24*3 bytes
     db "STATUS. DONE AT NIGHT IN"
@@ -46,7 +46,7 @@ race_stock_4:
     db 32 ; price money (in $100s)
     db 2,3,7  ; opponents
     db 0,1,1         ; opponent cars
-    db 62, 60, 62   ; handycaps
+    db 62, 58, 60   ; handycaps
     db 1, 0, 0, 1, 1, 3, 0  ; points that drivers not in this race get after playing this race
     db "A CHALLENGING TRACK ON  "   ; description 24*3 bytes
     db "SMALLER CITY STREETS. A "

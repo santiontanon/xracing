@@ -232,7 +232,7 @@ races_screen_get_next_available_races:
 	jr z,races_screen_get_next_available_races_endurance
 races_screen_get_next_available_races_f1:
 	ld hl,menu_buffer+RACE_STRUCT_SIZE*8	; to start in the f1 races
-	ld b,8	; # races in this category
+	ld b,7	; # races in this category
 	ld c,1 	; max races to select from
 	jr races_screen_get_next_available_races_loop_start
 

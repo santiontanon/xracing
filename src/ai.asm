@@ -103,9 +103,25 @@ update_car_race_position_waypoint_loop:
 	ld (ix+CAR_STRUCT_NEXT_WAYPOINT),0
 	ld a,(ix+CAR_STRUCT_CAR_ID)
 	or a
-	ret nz
-	; if this is the player car, increase the lap count:
-    jp scoreboard_increase_lap_count
+	; if this is the player car, increase the lap count in the scoreboard:
+	jp z,scoreboard_increase_lap_count
+	; otherwise, increase the lap count of the AI cars:
+	ld hl,current_lap
+	ADD_HL_A_VIA_BC
+	inc (hl)
+	; check if all opponents have done the maximum number of laps:
+	ld hl,current_lap+1
+	ld a,49+MAX_LAPS-1
+	cp (hl)
+	ret p
+	inc hl
+	cp (hl)
+	ret p
+	inc hl
+	cp (hl)
+	ret p
+	; race should be over, since all opponents have done 4 laps!
+	jp max_laps_reached
 
 update_car_race_position_waypoint_right:
 	ld a,b	; x tile difference
@@ -131,13 +147,16 @@ update_car_race_position_waypoint_up:
 	jp m,update_car_race_position_next_waypoint
 	ret
 
+
+;-----------------------------------------------
+; a car has passed a waypoint, so we update its progress in the race, and update the car positions (1st, 2ne, 3rd or 4th):
 update_car_race_position_next_waypoint:
 	ld a,(ix+CAR_STRUCT_NEXT_WAYPOINT)
 	add a,4
 	ld (ix+CAR_STRUCT_NEXT_WAYPOINT),a
-	ld a,(ix+CAR_STRUCT_RACE_PROGRESS)
-	cp #ff
-	ret z	; if a car has reached position 255, then just stop updating this to avoid
+;	ld a,(ix+CAR_STRUCT_RACE_PROGRESS)
+;	cp #7f
+;	ret z	; if a car has reached position 127, then just stop updating this to avoid overflow
 	inc (ix+CAR_STRUCT_RACE_PROGRESS)
 	push hl
 	call update_race_positions
@@ -145,6 +164,8 @@ update_car_race_position_next_waypoint:
 	ret
 
 
+;-----------------------------------------------
+; respawn an AI car in the road in a proper position to continue racing
 car_ai_respawn:
 	; get the next waypoint:
 	ld hl,track_waypoints

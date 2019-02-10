@@ -173,7 +173,6 @@ scoreboard_increase_lap_count_not_fastest_lap:
     ld hl,0
     ld (current_lap_time),hl    
     ; update scoreboard:
-    ;call SETWRT
     ld hl,current_lap
     inc (hl)
     ld a,(hl)

@@ -1,6 +1,7 @@
     org #0000
 
 patterns:
+    db #02,#ff,#01,#ff,#ff,#ff,#ff,#ff
     db #08,#fc,#06,#ff,#ff,#ff,#01,#ff
     db #ff,#ff,#ff,#ff,#ff,#ff,#ff,#03
     db #ff,#ff,#ff,#ff,#ff,#03,#0f,#3f
@@ -57,8 +58,8 @@ patterns:
     db #ff,#9f,#fc,#fc,#fc,#03,#fc,#03
     db #ff,#7f,#f0,#f0,#f0,#0f,#f0,#0f
     db #ff,#ff,#c0,#c0,#c0,#3f,#c0,#3f
-    db #00,#7e,#ff,#ff,#ff,#ff,#18,#c3
 patternattributes:
+    db #c2,#c0,#c2,#c0,#20,#c0,#20,#c0
     db #c2,#c2,#c2,#c0,#20,#c0,#62,#c0
     db #20,#c0,#20,#c0,#20,#c0,#20,#ec
     db #20,#c0,#20,#c0,#20,#ec,#e2,#ec
@@ -115,4 +116,3 @@ patternattributes:
     db #20,#c5,#f2,#fc,#a2,#ca,#a2,#ca
     db #20,#c5,#f2,#fc,#a2,#ca,#a2,#ca
     db #20,#c0,#f2,#fc,#a2,#ca,#a2,#ca
-    db #00,#c0,#20,#c0,#20,#c0,#32,#c3

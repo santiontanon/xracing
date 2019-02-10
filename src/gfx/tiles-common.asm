@@ -30,6 +30,10 @@ patterns:
     db #ff,#ff,#ff,#fe,#fc,#f8,#f0,#e0
     db #ff,#ff,#ff,#ff,#30,#30,#ff,#ff
     db #ff,#ff,#ff,#ff,#c0,#c0,#ff,#ff
+    db #80,#c0,#e0,#f0,#f8,#fc,#fe,#ff
+    db #ff,#ff,#80,#c0,#e0,#f0,#f8,#fc
+    db #ff,#ff,#ff,#ff,#80,#c0,#e0,#f0
+    db #ff,#ff,#ff,#ff,#ff,#ff,#80,#c0
     db #01,#03,#07,#0f,#1f,#3f,#7f,#ff
     db #07,#0f,#1f,#3f,#7f,#ff,#ff,#ff
     db #1f,#3f,#7f,#ff,#ff,#ff,#ff,#ff
@@ -185,21 +189,17 @@ patterns:
     db #11,#d1,#ff,#c0,#20,#f0,#19,#ff
     db #ff,#c0,#20,#f0,#19,#ff,#01,#fd
     db #ff,#ff,#ff,#ff,#ff,#ff,#ff,#ff
-    db #80,#c0,#e0,#f0,#f8,#fc,#fe,#ff
-    db #ff,#ff,#80,#c0,#e0,#f0,#f8,#fc
-    db #ff,#ff,#ff,#ff,#80,#c0,#e0,#f0
-    db #ff,#ff,#ff,#ff,#ff,#ff,#80,#c0
     db #ff,#ff,#ff,#ff,#ff,#ff,#ff,#ff
     db #0f,#3f,#ff,#ff,#ff,#ff,#ff,#ff
     db #ff,#ff,#ff,#ff,#ff,#ff,#3f,#0f
     db #ff,#c0,#f0,#fc,#ff,#ff,#ff,#ff
     db #ff,#ff,#ff,#c0,#f0,#fc,#ff,#ff
     db #f0,#fc,#ff,#ff,#ff,#ff,#ff,#ff
+    db #ff,#ff,#ff,#ff,#ff,#ff,#ff,#ff
     db #ff,#ff,#ff,#ff,#01,#fd,#ff,#fc
+    db #ff,#ff,#ff,#ff,#ff,#ff,#ff,#ff
     db #ff,#ff,#ff,#ff,#04,#f4,#ff,#f0
-    db #ff,#ff,#ff,#ff,#ff,#ff,#ff,#ff
-    db #02,#ff,#01,#ff,#ff,#ff,#ff,#ff
-    db #ff,#ff,#ff,#ff,#ff,#ff,#ff,#ff
+    db #ff,#fc,#0f,#e0,#3f,#c0,#3f,#c0
 patternattributes:
     db #e2,#ec,#e2,#e0,#e0,#e0,#e0,#e0
     db #e2,#e0,#e0,#e0,#e0,#e0,#e0,#e0
@@ -230,6 +230,10 @@ patternattributes:
     db #e0,#e0,#e0,#ec,#e2,#ec,#e2,#ec
     db #e0,#e0,#e0,#e0,#fe,#fe,#e0,#e0
     db #e0,#e0,#e0,#e0,#fe,#fe,#e0,#e0
+    db #e2,#ec,#e2,#ec,#e2,#ec,#e2,#e0
+    db #20,#c0,#e2,#ec,#e2,#ec,#e2,#ec
+    db #20,#c0,#20,#c0,#e2,#ec,#e2,#ec
+    db #20,#c0,#20,#c0,#20,#c0,#e2,#ec
     db #e2,#ec,#e2,#ec,#e2,#ec,#e2,#e0
     db #e2,#ec,#e2,#ec,#e2,#e0,#e0,#e0
     db #e2,#ec,#e2,#e0,#e0,#e0,#e0,#e0
@@ -385,18 +389,14 @@ patternattributes:
     db #c2,#c2,#20,#c2,#c2,#c2,#c2,#c0
     db #20,#c2,#c2,#c2,#c2,#c0,#62,#c6
     db #e0,#e0,#e0,#e0,#e0,#e0,#e0,#e0
-    db #e2,#ec,#e2,#ec,#e2,#ec,#e2,#e0
-    db #20,#c0,#e2,#ec,#e2,#ec,#e2,#ec
-    db #20,#c0,#20,#c0,#e2,#ec,#e2,#ec
-    db #20,#c0,#20,#c0,#20,#c0,#e2,#ec
     db #20,#c0,#20,#c0,#20,#c0,#20,#c0
     db #e2,#ec,#e0,#e0,#e0,#e0,#e0,#e0
     db #e0,#e0,#e0,#e0,#e0,#e0,#e2,#ec
     db #20,#ec,#e2,#ec,#e0,#e0,#e0,#e0
     db #20,#c0,#20,#ec,#e2,#ec,#e0,#e0
     db #e2,#ec,#e0,#e0,#e0,#e0,#e0,#e0
-    db #20,#c0,#20,#c0,#c2,#c2,#20,#c2
-    db #20,#c0,#20,#c0,#c2,#c2,#20,#c2
     db #50,#50,#50,#50,#50,#50,#50,#50
-    db #c2,#c0,#c2,#c0,#20,#c0,#20,#c0
+    db #20,#c0,#20,#c0,#c2,#c2,#20,#c2
     db #40,#50,#40,#30,#30,#30,#30,#30
+    db #20,#c0,#20,#c0,#c2,#c2,#20,#c2
+    db #20,#c5,#52,#c4,#42,#c4,#42,#c4

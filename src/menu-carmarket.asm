@@ -9,7 +9,7 @@ carmarket_screen:
     	; draw the car market screen:
     	ld hl,carmarket_screen_pletter
     	ld de,menu_buffer
-    	call pletter_unpack
+    	call pletter_unpack_from_page0
     	ld hl,menu_buffer
     	ld de,NAMTBL2
     	ld bc,768-64

@@ -19,43 +19,43 @@ Soft_Piano_instrument_profile:
 
 
 note_period_table:
-  db 13,93,  12,156,  11,231,  11,60,  10,155,  10,2,  9,115,  8,235
-  db 8,107,  7,242,  7,128,  7,20,  6,174,  6,78,  5,244,  5,158
-  db 5,77,  5,1,  3,192,  3,87,  2,250,  2,207,  2,167,  2,129
-  db 2,59,  1,252,  1,224,  1,197,  1,172,  1,148,  1,125,  1,104
-  db 1,83,  1,64,  1,29,  1,13,  0,254,  0,240,  0,226,  0,214
-  db 0,190,  0,180,  0,170,  0,160,  0,143
+    db 13,93,  12,156,  11,231,  11,60,  10,155,  10,2,  9,115,  8,235
+    db 8,107,  7,242,  7,128,  7,20,  6,174,  6,78,  5,244,  5,158
+    db 5,77,  5,1,  3,192,  3,87,  2,250,  2,207,  2,167,  2,129
+    db 2,59,  1,252,  1,224,  1,197,  1,172,  1,148,  1,125,  1,104
+    db 1,83,  1,64,  1,29,  1,13,  0,254,  0,240,  0,226,  0,214
+    db 0,190,  0,180,  0,170,  0,160,  0,143
 
 ;-----------------------------------------------
 ; Sound effects used for the percussion in the songs
 SFX_open_hi_hat:
-  db  7,#1c    ;; noise in channel C, and tone in channels B and A
-  db 10,#0a    ;; volume
-  db  6+MUSIC_CMD_TIME_STEP_FLAG,#01    ;; noise frequency
-  db MUSIC_CMD_SKIP
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#08    ;; volume
-  db MUSIC_CMD_SKIP
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#06    ;; volume
-  db MUSIC_CMD_SKIP,MUSIC_CMD_SKIP,MUSIC_CMD_SKIP
-  db MUSIC_CMD_SKIP,MUSIC_CMD_SKIP,MUSIC_CMD_SKIP,MUSIC_CMD_SKIP
-  db  7,#38    ;; SFX all channels to tone
-  db 10,#00         ;; channel 3 volume to silence
-  db SFX_CMD_END      
+    db  7,#1c    ;; noise in channel C, and tone in channels B and A
+    db 10,#0a    ;; volume
+    db  6+MUSIC_CMD_TIME_STEP_FLAG,#01    ;; noise frequency
+    db MUSIC_CMD_SKIP
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#08    ;; volume
+    db MUSIC_CMD_SKIP
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#06    ;; volume
+    db MUSIC_CMD_SKIP,MUSIC_CMD_SKIP,MUSIC_CMD_SKIP
+    db MUSIC_CMD_SKIP,MUSIC_CMD_SKIP,MUSIC_CMD_SKIP,MUSIC_CMD_SKIP
+    db  7,#b8    ;; SFX all channels to tone
+    db 10,#00         ;; channel 3 volume to silence
+    db SFX_CMD_END      
 
 
 SFX_pedal_hi_hat:
-  db  7,#1c    ;; noise in channel C, and tone in channels B and A
-  db 10,#05    ;; volume
-  db  6+MUSIC_CMD_TIME_STEP_FLAG,#04    ;; noise frequency
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#08    ;; volume
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
-  db  7,#38    ;; SFX all channels to tone
-  db 10,#00         ;; channel 3 volume to silence
-  db SFX_CMD_END   
+    db  7,#1c    ;; noise in channel C, and tone in channels B and A
+    db 10,#05    ;; volume
+    db  6+MUSIC_CMD_TIME_STEP_FLAG,#04    ;; noise frequency
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#08    ;; volume
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
+    db  7,#b8    ;; SFX all channels to tone
+    db 10,#00         ;; channel 3 volume to silence
+    db SFX_CMD_END   
 
 
 SFX_semaphore1:
-    db 7,#38
+    db  7,#b8
     db 10,#0f
     db 5, #06, 4+MUSIC_CMD_TIME_STEP_FLAG, #00
     db MUSIC_CMD_SKIP,MUSIC_CMD_SKIP,MUSIC_CMD_SKIP
@@ -75,7 +75,7 @@ SFX_semaphore1:
 
 
 SFX_semaphore2:
-    db 7,#38
+    db 7,#b8
     db 10,#0f
     db 5, #02, 4+MUSIC_CMD_TIME_STEP_FLAG, #00
     db MUSIC_CMD_SKIP,MUSIC_CMD_SKIP,MUSIC_CMD_SKIP
@@ -103,7 +103,7 @@ SFX_collision_soft:
     db 10+MUSIC_CMD_TIME_STEP_FLAG,#0a
     db 10+MUSIC_CMD_TIME_STEP_FLAG,#06
     db 10,#00
-    db 7,#38
+    db 7,#b8
     db SFX_CMD_END
 
 
@@ -121,7 +121,7 @@ SFX_collision_hard:
     db 10+MUSIC_CMD_TIME_STEP_FLAG,#08
     db 10+MUSIC_CMD_TIME_STEP_FLAG,#06
     db 10,#00
-    db 7,#38
+    db 7,#b8
     db SFX_CMD_END
 
 
@@ -135,12 +135,12 @@ SFX_brake:
     db 4+MUSIC_CMD_TIME_STEP_FLAG, #68
     db 4+MUSIC_CMD_TIME_STEP_FLAG, #60
     db 10,#00
-    db 7,#38
+    db 7,#b8
     db SFX_CMD_END
 
 
 SFX_lap:
-    db 7,#38
+    db 7,#b8
     db 5, #02, 4, #00, 10+MUSIC_CMD_TIME_STEP_FLAG, #09
     db 10+MUSIC_CMD_TIME_STEP_FLAG,#08
     db 5, #02, 4, #00, 10+MUSIC_CMD_TIME_STEP_FLAG, #0a
@@ -174,60 +174,60 @@ SFX_lap:
 
 
 SFX_menu_switch:
-  db  7,#b8    ;; SFX all channels to tone
-  db 10,#0d    ;; volume
-  db 4,0, 5+MUSIC_CMD_TIME_STEP_FLAG,#01 ;; frequency
-  db MUSIC_CMD_SKIP
-  db MUSIC_CMD_SKIP
-  db 4,#40,5+MUSIC_CMD_TIME_STEP_FLAG,#00 ;; frequency
-  db MUSIC_CMD_SKIP
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#0d    ;; volume
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#09    ;; volume
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#07    ;; volume
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#05    ;; volume
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#03    ;; volume
-  db 10,#00    ;; silence
-  db SFX_CMD_END 
+    db  7,#b8    ;; SFX all channels to tone
+    db 10,#0d    ;; volume
+    db 4,0, 5+MUSIC_CMD_TIME_STEP_FLAG,#01 ;; frequency
+    db MUSIC_CMD_SKIP
+    db MUSIC_CMD_SKIP
+    db 4,#40,5+MUSIC_CMD_TIME_STEP_FLAG,#00 ;; frequency
+    db MUSIC_CMD_SKIP
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#0d    ;; volume
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#09    ;; volume
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#07    ;; volume
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#05    ;; volume
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#03    ;; volume
+    db 10,#00    ;; silence
+    db SFX_CMD_END 
 
 SFX_menu_select:
-  db  7,#b8    ;; SFX all channels to tone
-  db 10,#0d    ;; volume
-  db 4,#80, 5+MUSIC_CMD_TIME_STEP_FLAG,#00 ;; frequency
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
+    db  7,#b8    ;; SFX all channels to tone
+    db 10,#0d    ;; volume
+    db 4,#80, 5+MUSIC_CMD_TIME_STEP_FLAG,#00 ;; frequency
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
 
-  db 10,#0d    ;; volume
-  db 4,#70, 5+MUSIC_CMD_TIME_STEP_FLAG,#00 ;; frequency
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
+    db 10,#0d    ;; volume
+    db 4,#70, 5+MUSIC_CMD_TIME_STEP_FLAG,#00 ;; frequency
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
 
-  db 10,#0d    ;; volume
-  db 4,#60, 5+MUSIC_CMD_TIME_STEP_FLAG,#00 ;; frequency
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
+    db 10,#0d    ;; volume
+    db 4,#60, 5+MUSIC_CMD_TIME_STEP_FLAG,#00 ;; frequency
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
 
-  db 10,#0d    ;; volume
-  db 4,#50, 5+MUSIC_CMD_TIME_STEP_FLAG,#00 ;; frequency
-  db MUSIC_CMD_SKIP
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
-  db MUSIC_CMD_SKIP
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#09    ;; volume
-  db MUSIC_CMD_SKIP
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#07    ;; volume
-  db MUSIC_CMD_SKIP
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#05    ;; volume
-  db MUSIC_CMD_SKIP
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#04    ;; volume
-  db MUSIC_CMD_SKIP
-  db 10+MUSIC_CMD_TIME_STEP_FLAG,#03    ;; volume
-  db MUSIC_CMD_SKIP
-  db 10,#00    ;; silence
-  db SFX_CMD_END    
+    db 10,#0d    ;; volume
+    db 4,#50, 5+MUSIC_CMD_TIME_STEP_FLAG,#00 ;; frequency
+    db MUSIC_CMD_SKIP
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#0b    ;; volume
+    db MUSIC_CMD_SKIP
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#09    ;; volume
+    db MUSIC_CMD_SKIP
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#07    ;; volume
+    db MUSIC_CMD_SKIP
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#05    ;; volume
+    db MUSIC_CMD_SKIP
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#04    ;; volume
+    db MUSIC_CMD_SKIP
+    db 10+MUSIC_CMD_TIME_STEP_FLAG,#03    ;; volume
+    db MUSIC_CMD_SKIP
+    db 10,#00    ;; silence
+    db SFX_CMD_END    
 
 SFX_agent_text:
-  db  7,#b8    ;; SFX all channels to tone
-  db 10,#0c    ;; volume
-  db 4,0, 5+MUSIC_CMD_TIME_STEP_FLAG,#03 ;; frequency
-  db 10,#00    ;; silence
-  db SFX_CMD_END 
+    db  7,#b8    ;; SFX all channels to tone
+    db 10,#0c    ;; volume
+    db 4,0, 5+MUSIC_CMD_TIME_STEP_FLAG,#03 ;; frequency
+    db 10,#00    ;; silence
+    db SFX_CMD_END 
 
 
 ;-----------------------------------------------
@@ -632,7 +632,7 @@ update_sound_SFX_END:
     xor a
     ld (SFX_priority),a
     ld a,7
-    ld e,#38  ;; SFX should reset all channels to tone
+    ld e,#b8  ;; SFX should reset all channels to tone
     jp WRTPSG
 
 

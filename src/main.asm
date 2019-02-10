@@ -70,6 +70,9 @@ title_song_pletter:
 title_ingame1_song_pletter:
     incbin "music/ingame1-song.plt"
 
+carmarket_screen_pletter:
+    incbin "gfx/carmarket-screen.plt"
+
 
 EndofPage0Data:
 
@@ -248,8 +251,8 @@ gameover_song_pletter:
 ; menu screens:
 season_screen_pletter:
     incbin "gfx/season-screen.plt"
-carmarket_screen_pletter:
-    incbin "gfx/carmarket-screen.plt"
+;carmarket_screen_pletter:
+;    incbin "gfx/carmarket-screen.plt"
 standings_screen_pletter:
     incbin "gfx/standings-screen.plt"
 races_screen_pletter:
@@ -479,9 +482,9 @@ high_gear_208b:
 high_gear_224:
     db 14,14,32,44, 60,64,64,64, 64,40,32,32, 16, 8, 0, 0
 high_gear_240b:
-    db 20,24,36,48, 64,64,64,64, 64,44,34,34, 20,12, 4, 0
+    db 20,24,36,48, 62,64,64,64, 64,44,34,34, 20,10, 4, 0
 high_gear_240c:
-    db 24,28,36,54, 64,64,64,64, 64,48,36,36, 24,16, 8, 0
+    db 24,30,40,56, 64,64,64,64, 64,48,40,36, 28,16, 8, 0
 
 carmarket_screen_sprites:
     db 4*8-1,14*8+4,0,1
@@ -738,8 +741,7 @@ scoreboard_message_position:        ds virtual 1
 scoreboard_draw_buffer:     ds virtual 11*2
 scoreboard_timer_buffer:    ds virtual 7  ; we represent the time directly as the tiles necessary to render it
 scoreboard_position_buffer: ds virtual 2 
-current_lap:                ds virtual 1
-;sprite_attributes_buffer:   ds virtual 4*(4+4+8+MAX_MAP_SPRITES_IN_SCREEN)
+current_lap:                ds virtual N_CARS    ; (for each car) the is stored as the character '1', '2', '3' or '4'
 sprite_attributes_buffer:   ds virtual 4*32
 
 scoreboard_damage_buffer:   ds virtual 1    ; just a temporary byte to place the tile to draw in the damage slots
@@ -834,5 +836,6 @@ menu_races_n_races:     ds virtual 1
 menu_races_race_ptrs:   ds virtual 2*4  ; 4 is the maximum number of races to choose from
 menu_races_race_indexes:    ds virtual 4
 menu_buffer:    ds virtual 2048
+menu_agent_fast_text_skip: ds virtual 1
 menu_agent_data_buffer: ds virtual 142
 

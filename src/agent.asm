@@ -113,6 +113,8 @@ draw_agent_text_character_by_character_press_space_draw_space
 ; This function shows text by the agent character by character, into the designated agent text area
 ; input: "a" message index
 draw_agent_text_character_by_character:
+	ld hl,menu_agent_fast_text_skip
+	ld (hl),0
 	ld hl,agent_texts_pletter
 	ld de,menu_agent_data_buffer
 	push af
@@ -139,6 +141,13 @@ draw_agent_text_character_by_character_message_loop:
 	push de
 	push bc
 	call writeByteToVDP
+	call checkInput
+	ld a,(player_input_buffer+2) ; new keys pressed
+	bit INPUT_TRIGGER1_BIT,a
+	jr z,draw_agent_text_character_by_character_message_no_space
+	ld hl,menu_agent_fast_text_skip
+	ld (hl),1
+draw_agent_text_character_by_character_message_no_space:
 	pop bc
 	pop de
 	ld a,(de)
@@ -148,8 +157,13 @@ draw_agent_text_character_by_character_message_loop:
 	pop hl
 	inc hl
 	inc de
-	;halt
+
+	; if space is pressed, skip halt
+	ld a,(menu_agent_fast_text_skip)
+	or a
+	jr nz,draw_agent_text_character_by_character_message_skip_halt
 	halt
+draw_agent_text_character_by_character_message_skip_halt
 	djnz draw_agent_text_character_by_character_message_loop
 	ld bc,32-24
 	add hl,bc

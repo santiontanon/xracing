@@ -37,7 +37,7 @@ updateScroll_up:
     ld bc,(max_scroll_movement_this_frame)
     xor a
     sbc hl,bc
-    push hl     ; save last -5
+    push hl     ; save last - max_scroll_movement_this_frame
 
     ld bc,-SCROLL_UP_CAR_Y*4
     call desired_scroll_position_y
@@ -71,6 +71,8 @@ updateScroll_up_scroll_not_pushed:
     dec a   ; we decrease "a", to prevent snapping to the next rail too early
     cp l
     ret m   ; we haven't made it yet
+    ; mark the next scroll limits:
+    call store_scroll_limits
     inc a
 
     ; The following block of code is only needed for the "up" direction, since that's where the starting block is, 
@@ -100,7 +102,7 @@ updateScroll_right:
     push hl     ; save last - 2
     ld bc,(max_scroll_movement_this_frame)
     add hl,bc
-    push hl     ; save last + 5
+    push hl     ; save last + (max_scroll_movement_this_frame)
 
     ld bc,-SCROLL_RIGHT_CAR_X*4
     call desired_scroll_position_x
@@ -118,6 +120,9 @@ updateScroll_right:
     ld (scroll_being_pushed_x),a
 updateScroll_right_scroll_not_pushed:
 
+    ld bc,(horizontal_scroll_limit)
+    call hl_not_smaller_than_bc
+
     ld a,l
     and #03
     ld (scroll_x_pixel),a   ; we set the pixel coordinates
@@ -133,6 +138,7 @@ updateScroll_right_scroll_not_pushed:
     inc l
     cp l
     ret p   ; we haven't made it yet
+    call store_scroll_limits
     ld (scroll_x_tile),a    ; we overwrite, just in case we overshot
     xor a
 updateScroll_right_scroll_not_pushed_entry_point:
@@ -152,7 +158,7 @@ updateScroll_left:
     ld bc,(max_scroll_movement_this_frame)
     xor a
     sbc hl,bc
-    push hl     ; save last -5
+    push hl     ; save last - (max_scroll_movement_this_frame)
 
     ld bc,-SCROLL_LEFT_CAR_X*4
     call desired_scroll_position_x
@@ -186,6 +192,7 @@ updateScroll_left_scroll_not_pushed:
     dec a   ; we decrease "a", to prevent snapping to the next rail too early
     cp l
     ret m   ; we haven't made it yet
+    call store_scroll_limits
     inc a
     ld (scroll_x_tile),a    ; we overwrite, just in case we overshot
     xor a
@@ -205,7 +212,7 @@ updateScroll_down:
     push hl     ; save last -2
     ld bc,(max_scroll_movement_this_frame)
     add hl,bc
-    push hl     ; save last +5
+    push hl     ; save last + (max_scroll_movement_this_frame)
 
     ld bc,-SCROLL_DOWN_CAR_Y*4
     call desired_scroll_position_y
@@ -223,6 +230,9 @@ updateScroll_down:
     ld (scroll_being_pushed_y),a
 updateScroll_down_scroll_not_pushed:
 
+    ld bc,(vertical_scroll_limit)
+    call hl_not_smaller_than_bc
+
     ld a,l
     and #03
     ld (scroll_y_pixel),a   ; we set the pixel coordinates
@@ -238,6 +248,7 @@ updateScroll_down_scroll_not_pushed:
     inc l
     cp l
     ret p   ; we haven't made it yet
+    call store_scroll_limits
     ld (scroll_y_tile),a    ; we overwrite, just in case we overshot
     xor a
     ld (scroll_y_pixel),a   ; reset pixel position
@@ -263,6 +274,15 @@ markWhichExtraTilesToLoad:
     ld (extra_tiles_to_load),a
     ret
 
+
+;-----------------------------------------------
+; stores the current scroll position as the scroll limits for the next rail
+store_scroll_limits:
+    ld hl,(last_scroll_car_map_y)
+    ld (vertical_scroll_limit),hl
+    ld hl,(last_scroll_car_map_x)
+    ld (horizontal_scroll_limit),hl
+    ret
 
 ;-----------------------------------------------
 ; Does the actual tile loading (this will be called right before rendering the current frame)

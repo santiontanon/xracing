@@ -191,13 +191,12 @@ prepare_game_for_race_start_tileset_loaded:
     ; reset the lap times:
     ld hl,0
     ld (current_lap_time),hl
-    ;ld (fastest_lap_time),hl
     ;ld hl,current_lap_time
     ;ld de,current_lap_time+1
     ;ld bc,(MAX_LAPS+2)*2-1
     ;ldir
-    ; set the current fastest lap to the highest possible positive value:
-    ld hl,#7fff
+    ; set the current fastest lap to a very high time:
+    ld hl,24+59*25+9*60*25  ; 9:59:98
     ld (fastest_lap_time),hl
 
     ld a,#ff
@@ -428,4 +427,5 @@ init_car_starting_positions_and_scroll_loop:
     call hl_not_smaller_than_bc
     call desired_scroll_position_y
     ld (last_scroll_car_map_y),hl
+    ld (vertical_scroll_limit),hl
     ret

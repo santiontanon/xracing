@@ -13,7 +13,10 @@ ROM_scoreboard_timer_buffer:
     db 48,58,48,48,58,48,48 ; 0:00:00
 ROM_scoreboard_position_buffer:
     db '4', 22  ; 4th
-ROM_current_lap:
+ROM_current_lap:    ; we store as the character, so we can draw it ieasily in the scoreboard
+    db 49   ; number "1"
+    db 49   ; number "1"
+    db 49   ; number "1"
     db 49   ; number "1"
 ROM_sprite_attributes_buffer:
     db 200, 0, CAR_POINTER_SPRITE_PATTERN, 8    ; player car pointer

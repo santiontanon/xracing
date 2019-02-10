@@ -17,21 +17,21 @@ load_map_urban_tileset_selected:
 	ld (tileTypesV_ptr),hl
 
     ; calculate the scroll limits:
-    ld a,(map_width)
-    sub 32
-    ld h,0
-    ld l,a
-    add hl,hl
-    add hl,hl
-    ld (horizontal_scroll_limit),hl
+;    ld a,(map_width)
+;    sub 32
+;    ld h,0
+;    ld l,a
+;    add hl,hl
+;    add hl,hl
+;    ld (horizontal_scroll_limit),hl
 
-    ld a,(map_height)
-    sub 16
-    ld h,0
-    ld l,a
-    add hl,hl
-    add hl,hl
-    ld (vertical_scroll_limit),hl
+;    ld a,(map_height)
+;    sub 16
+;    ld h,0
+;    ld l,a
+;    add hl,hl
+;    add hl,hl
+;    ld (vertical_scroll_limit),hl
 
     xor a
     ld (map_n_sprites),a
