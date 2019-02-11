@@ -90,10 +90,10 @@
     <property name="speed" value="240"/>
    </properties>
   </object>
-  <object id="6" x="464" y="40" width="8" height="8">
+  <object id="6" x="472" y="40" width="8" height="8">
    <properties>
     <property name="direction" value="right"/>
-    <property name="speed" value="240"/>
+    <property name="speed" value="200"/>
    </properties>
   </object>
   <object id="10" x="512" y="80" width="8" height="8">
@@ -108,10 +108,10 @@
     <property name="speed" value="240"/>
    </properties>
   </object>
-  <object id="13" x="512" y="152" width="8" height="8">
+  <object id="13" x="520" y="160" width="8" height="8">
    <properties>
     <property name="direction" value="down"/>
-    <property name="speed" value="240"/>
+    <property name="speed" value="200"/>
    </properties>
   </object>
   <object id="15" x="472" y="192" width="8" height="8">
@@ -150,10 +150,10 @@
     <property name="speed" value="240"/>
    </properties>
   </object>
-  <object id="24" x="448" y="472" width="8" height="8">
+  <object id="24" x="472" y="472" width="8" height="8">
    <properties>
     <property name="direction" value="right"/>
-    <property name="speed" value="240"/>
+    <property name="speed" value="200"/>
    </properties>
   </object>
   <object id="25" x="504" y="432" width="8" height="8">
@@ -162,7 +162,7 @@
     <property name="speed" value="240"/>
    </properties>
   </object>
-  <object id="26" x="504" y="392" width="8" height="8">
+  <object id="26" x="504" y="376" width="8" height="8">
    <properties>
     <property name="direction" value="up"/>
     <property name="speed" value="240"/>

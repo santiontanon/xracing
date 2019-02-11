@@ -102,6 +102,7 @@ COORDINATE_PRECISION:	equ 16	; each COORDINATE_PRECISION units in the map coordi
 N_CARS:			equ 4
 ;MAX_LAPS:		equ 6
 MAX_LAPS:		equ 4
+;MAX_LAPS:		equ 1
 
 MAX_MAP_WIDTH:	equ 95	; this is a pretty large map already! (I might want to reduce this, 
 MAX_MAP_HEIGHT:	equ 80	; unless I find a good reason for having such a large map)

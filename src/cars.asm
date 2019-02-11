@@ -939,6 +939,7 @@ update_race_positions:
 	ld hl,car_race_order
 	ADD_HL_A_VIA_BC		; c has the current car now
 	ld e,(hl)	; current position
+	ld iyl,e	; we store the initial position in iyl
 	ld d,(ix+CAR_STRUCT_RACE_PROGRESS)	; current race progress
 
 	xor a		; a has which car we are considering
@@ -953,7 +954,8 @@ update_race_positions_loop:
 	cp d
 	jp p,update_race_positions_loop_skip	; if the other car is the same or ahead, ignore
 	ld a,(hl)
-	cp e
+	cp iyl	; we compare with the original position in which we were at
+;	cp e
 	jp p,update_race_positions_loop_skip	; if the other car was behind already, ignore
 	dec e		; we move one position up!
 	inc (hl)	; the other car moves one position down

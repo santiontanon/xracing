@@ -801,7 +801,7 @@ player_car_chasis_damage:   ds virtual 1
 car_previous_x: ds virtual 2
 car_previous_y: ds virtual 2
 
-car_race_order:             ds virtual N_CARS
+car_race_order:             ds virtual N_CARS   ; the position of each car, so at race start, this is 3,2,1,0
 
 ; tracking of lap times:
 current_lap_time:   ds virtual 2

@@ -29,7 +29,7 @@ note_period_table:
 ;-----------------------------------------------
 ; Sound effects used for the percussion in the songs
 SFX_open_hi_hat:
-    db  7,#1c    ;; noise in channel C, and tone in channels B and A
+    db  7,#9c    ;; noise in channel C, and tone in channels B and A
     db 10,#0a    ;; volume
     db  6+MUSIC_CMD_TIME_STEP_FLAG,#01    ;; noise frequency
     db MUSIC_CMD_SKIP
@@ -44,7 +44,7 @@ SFX_open_hi_hat:
 
 
 SFX_pedal_hi_hat:
-    db  7,#1c    ;; noise in channel C, and tone in channels B and A
+    db  7,#9c    ;; noise in channel C, and tone in channels B and A
     db 10,#05    ;; volume
     db  6+MUSIC_CMD_TIME_STEP_FLAG,#04    ;; noise frequency
     db 10+MUSIC_CMD_TIME_STEP_FLAG,#08    ;; volume
@@ -95,7 +95,7 @@ SFX_semaphore2:
 
 
 SFX_collision_soft:
-    db 7,#18
+    db 7,#98
     db 10,#0f
     db 5,#06,4,#00
     db 6+MUSIC_CMD_TIME_STEP_FLAG,#08
@@ -108,13 +108,13 @@ SFX_collision_soft:
 
 
 SFX_collision_hard:
-    db 7,#18
+    db 7,#98
     db 10,#0f
     db 5,#06,4,#00
     db 6+MUSIC_CMD_TIME_STEP_FLAG,#1f
     db 6+MUSIC_CMD_TIME_STEP_FLAG,#1c
     db 6+MUSIC_CMD_TIME_STEP_FLAG,#1a
-    db 7,#1c
+    db 7,#9c
     db 10,#0c
     db 6+MUSIC_CMD_TIME_STEP_FLAG,#08
     db 10+MUSIC_CMD_TIME_STEP_FLAG,#0a
@@ -126,7 +126,7 @@ SFX_collision_hard:
 
 
 SFX_brake:
-    db 7,#18
+    db 7,#98
     db 6,#04
     db 10,#0f
     db 5,#00, 4+MUSIC_CMD_TIME_STEP_FLAG, #68
