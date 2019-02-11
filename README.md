@@ -1,6 +1,6 @@
 ## XRacing (MSX) by Santiago Ontañón Villar
 
-Download latest compiled ROMs (v1.0.1) from: https://github.com/santiontanon/xracing/releases/tag/1.0.1
+Download latest compiled ROMs (v1.0.2) from: https://github.com/santiontanon/xracing/releases/tag/1.0.2
 
 You will need an MSX emulator to play the game on a PC, for example OpenMSX: http://openmsx.org
 
