@@ -10,6 +10,8 @@ season_screen_start_new_season:
 	ld de,game_progress_category
 	ld bc,endOfROM2RAM_gameStart-ROM2RAM_gameStart
 	ldir
+	;ld a,10
+	;ld (game_progress_points),a	; start with 10 points (to win the season easily)
 	;ld a,1	; start in endurance
 	;ld a,2	; start in f1
 	ld (game_progress_category),a	; current season
@@ -39,6 +41,7 @@ season_screen:
 	ld a,(game_progress_category)
 	ADD_HL_A
 	ld b,(hl)
+;	ld b,1	; DEBUG! REMOVE THIS!
 	ld a,(game_progress_race_number)
 	cp b
 	jp z,season_screen_season_over
@@ -309,7 +312,7 @@ season_screen_quit:
 
 talk_to_agent:
 	ld a,(game_progress_last_agent_tip)
-	cp 9
+	cp 8
 	jr z,talk_to_agent_angry
 talk_to_agent_continue:
 	add a,10
@@ -317,7 +320,7 @@ talk_to_agent_continue:
 
 	ld hl,game_progress_last_agent_tip
 	ld a,(hl)
-	cp 9
+	cp 8
 	jp p,season_screen_loop
 	inc (hl)
 	jp season_screen_loop

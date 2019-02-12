@@ -76,10 +76,10 @@ agent_message_advice4:
     db "BUT YOU CAN GET MORE OUT"
     db "OF MANUAL GEARS!        "
 
-agent_message_advice5:
-    db "IF YOU HAVE A GOOD LEAD,"   
-    db "SLOW DOWN TO SAVE YOUR  "
-    db "ENGINE!                 "
+;agent_message_advice5:
+;    db "IF YOU HAVE A GOOD LEAD,"   
+;    db "SLOW DOWN TO SAVE YOUR  "
+;    db "ENGINE!                 "
 
 agent_message_advice6:
     db "REMEMBER CARS HAVE...   "   
@@ -111,4 +111,8 @@ agent_message_advice10:
     db "ADVICE, AND JUST WIN THE"
     db "RACES!!!                "
 
+agent_message_world_champ:
+    db "YEEEEESSSSS!!! FORMULA 1"   
+    db "WORLD CHAMPION BABY!!!  "
+    db "                        "
 

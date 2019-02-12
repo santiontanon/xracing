@@ -32,12 +32,17 @@ standings_screen:
 	ld a,(game_progress_category)
 	or a
 	jr z,standings_screen_end_of_season_promote_to_endurance
+	dec a
+	jr z,standings_screen_end_of_season_promote_to_f1
+standings_screen_end_of_season_f1_world_champ:
+	ld a,19
+	jr standings_screen_end_of_season_promote_to_endurance_entry_point
 standings_screen_end_of_season_promote_to_f1:
 	ld a,4
-	call draw_agent_text_character_by_character_press_space
-	jr standings_screen_end_of_season
+	jr standings_screen_end_of_season_promote_to_endurance_entry_point
 standings_screen_end_of_season_promote_to_endurance:
 	ld a,3
+standings_screen_end_of_season_promote_to_endurance_entry_point:
 	call draw_agent_text_character_by_character_press_space
 	jr standings_screen_end_of_season
 
@@ -81,7 +86,7 @@ standings_screen_end_of_season:
 	ld hl,game_progress_category
 	ld a,(hl)
 	cp 2
-	jp z,gameover_screen	; replace with game ending!
+	jp z, ending_screen	; replace with game ending!
 	inc a
 	jp season_screen_start_new_season
 

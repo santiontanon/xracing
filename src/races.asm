@@ -197,7 +197,7 @@ race_f1_7:
     db 100 ; price money (in $100s)
     db 5,6,7  ; opponents
     db 8,8,8         ; opponent cars
-    db 60, 62, 64   ; handycaps
+    db 58, 60, 62   ; handycaps
     db 0, 1, 2, 3, 0, 0, 0  ; points that drivers not in this race get after playing this race
     db "THE TITLE DECIDER!! DO  "   ; description 24*3 bytes
     db "NOT FAIL!! YOU WILL NOT "

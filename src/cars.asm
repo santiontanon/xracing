@@ -1,4 +1,3 @@
-
 ;-----------------------------------------------
 ; precalculates the offset of the scroll in pixels, so that all the sprite calculations later can use these values
 calculateScrollOffsets:
@@ -311,8 +310,11 @@ updateCarPhysics_car_x_collision:
 	cp 32
 	jp m,updateCarPhysics_car_x_collision_slow
 
-	; lower speed:
+	; lower speed (*0.75):
 	sra a
+	ld b,a
+	sra a
+	add a,b
 	ld (ix+CAR_STRUCT_SPEED),a
 
 	; invert the angle in the Y axis: 
@@ -329,7 +331,8 @@ updateCarPhysics_car_x_collision:
 	neg
 	add a,64
 updateCarPhysics_car_x_collision_no_angle_diff_adjustment:
-	cp 12
+;	cp 12
+	cp 16
 	jp p,updateCarPhysics_car_x_collision_angle_too_big
 	call update_chasis_damage_side_collision
 	ld a,(ix+CAR_STRUCT_ANGLE)
@@ -356,8 +359,11 @@ updateCarPhysics_car_y_collision:
 	cp 32
 	jp m,updateCarPhysics_car_y_collision_slow
 
-	; lower speed:
+	; lower speed: (*0.75)
 	sra a
+	ld b,a
+	sra a
+	add a,b
 	ld (ix+CAR_STRUCT_SPEED),a
 
 	; invert the angle in the X axis: 
@@ -373,7 +379,8 @@ updateCarPhysics_car_y_collision:
 	neg
 	add a,64
 updateCarPhysics_car_y_collision_no_angle_diff_adjustment:
-	cp 12
+;	cp 12
+	cp 16
 	jp p,updateCarPhysics_car_y_collision_angle_too_big
 	call update_chasis_damage_side_collision
 	ld a,(ix+CAR_STRUCT_ANGLE)
@@ -613,6 +620,17 @@ updateCarPhysics_accelerate:
 	ld a,(ix+CAR_STRUCT_ACCELERATION_STATE)
 	add a,(ix+CAR_STRUCT_ACCELERATION)
 	ld (ix+CAR_STRUCT_ACCELERATION_STATE),a
+
+	; handycap cars that are too far ahead of the driver:
+	ld a,(player_car_race_progress)
+	sub (ix+CAR_STRUCT_RACE_PROGRESS)
+	or a
+	jp p,updateCarPhysics_accelerate_no_handicap
+	ld a,(ix+CAR_STRUCT_ACCELERATION_STATE)
+	sub 4
+	ld (ix+CAR_STRUCT_ACCELERATION_STATE),a
+updateCarPhysics_accelerate_no_handicap:
+	ld a,(ix+CAR_STRUCT_ACCELERATION_STATE)
 	sub 64
 	ret m
 	ld (ix+CAR_STRUCT_ACCELERATION_STATE),a
