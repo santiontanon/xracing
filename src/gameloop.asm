@@ -422,9 +422,9 @@ init_car_starting_positions_and_scroll_loop:
     ld bc,0
     call hl_not_smaller_than_bc
     ld (last_scroll_car_map_x),hl
-    ld bc,-11*4
     ld bc,0
     call hl_not_smaller_than_bc
+    ld bc,-11*4
     call desired_scroll_position_y
     ld (last_scroll_car_map_y),hl
     ld (vertical_scroll_limit),hl

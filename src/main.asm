@@ -93,14 +93,14 @@ StartOfPage2:
 ;-----------------------------------------------
 ; Code that gets executed when the game starts
 Execute:
+    di
     ; init the stack:
     ld sp,#F380
     ; reset some interrupts to make sure it runs in some MSX computers 
     ; with disk controllers installed in some interrupt handlers
-    di
     ld a,#C9
     ld (HKEY),a
-;    ld (TIMI),a
+    ld (TIMI),a
     ei
 
     call SETPAGES48K

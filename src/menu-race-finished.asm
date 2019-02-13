@@ -4,12 +4,6 @@ race_finished_screen:
 		call clearScreen
 		call clearAllTheSprites
 
-		ld hl,title_song_pletter
-	    ld de,music_buffer
-	    call pletter_unpack_from_page0
-	    ld a,5
-	    call play_song
-
 	    ld hl,patterns_base_pletter
 	    call decompressPatternsToVDP3rdBank
 	    ld hl,patterns_patch_base_race_finished_pletter
@@ -128,6 +122,12 @@ race_finished_screen_point_loop2:
 		ld hl,flag_nametables_pletter
 		ld de,title_buffer_flag
 		call pletter_unpack
+		
+		ld hl,title_song_pletter
+	    ld de,music_buffer
+	    call pletter_unpack_from_page0
+	    ld a,5
+	    call play_song
 
 	call enable_VDP_output
 

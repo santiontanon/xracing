@@ -41,7 +41,7 @@ season_screen:
 	ld a,(game_progress_category)
 	ADD_HL_A
 	ld b,(hl)
-;	ld b,1	; DEBUG! REMOVE THIS!
+	;ld b,1	; DEBUG! REMOVE THIS!
 	ld a,(game_progress_race_number)
 	cp b
 	jp z,season_screen_season_over

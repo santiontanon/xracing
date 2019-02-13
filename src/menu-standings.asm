@@ -210,7 +210,7 @@ calculate_driver_standings_loop1:
 	jr nz,calculate_driver_standings_loop1
 
 	; 2) we find the top driver amongst the ones not yet considered, and we add it to the standings
-	ld iyh,8	; iteratino counte
+	ld iyh,8	; iteration counter
 	ld ix,menu_buffer+8	; here is where we will be writing the standings
 calculate_driver_standings_loop3:
 	ld iyl,0	; current driver being considered
@@ -227,6 +227,8 @@ calculate_driver_standings_loop2:
 	cp c
 	jp m,calculate_driver_standings_not_better
 	ld c,a
+	inc c	; this makes it so that ties are resolved in favor of the player with the lowest ID,
+			; so that if the player ties with another player, the player is at the top!
 	ld b,iyl
 calculate_driver_standings_already_has_a_standing:
 calculate_driver_standings_not_better:

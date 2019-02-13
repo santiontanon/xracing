@@ -1,2 +1,2 @@
 # compile the game:
-java -jar java/glass-0.5.jar src/main.asm racing.rom racing.sym
+java -jar java/glass-0.5.jar src/main.asm xracing.rom xracing.sym
