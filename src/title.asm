@@ -354,33 +354,46 @@ unpack_flag_patterns_to_VDP:
 	ld bc,144*8
 	push bc
 	call fast_LDIRVM
-	ld hl,title_buffer_flag+144*8
-	ld de,CLRTBL2+112*8
-	pop bc
-	push bc
-	call fast_LDIRVM
+;	ld hl,title_buffer_flag+144*8
+;	ld de,CLRTBL2+112*8
+;	pop bc
+;	push bc
+;	call fast_LDIRVM
 
-	ld hl,title_buffer_flag+144*8*2
+	ld hl,title_buffer_flag+144*8
 	ld de,CHRTBL2+256*8 + 112*8
 	pop bc
 	push bc
 	call fast_LDIRVM
-	ld hl,title_buffer_flag+144*8*3
-	ld de,CLRTBL2+256*8 + 112*8
-	pop bc
-	push bc
-	call fast_LDIRVM
+;	ld hl,title_buffer_flag+144*8*3
+;	ld de,CLRTBL2+256*8 + 112*8
+;	pop bc
+;	push bc
+;	call fast_LDIRVM
 
-	ld hl,title_buffer_flag+144*8*4
+	ld hl,title_buffer_flag+144*8*2
 	ld de,CHRTBL2+256*8*2 + 112*8
 	pop bc
-	push bc
+;	push bc
 	call fast_LDIRVM
-	ld hl,title_buffer_flag+144*8*5
-	ld de,CLRTBL2+256*8*2 + 112*8
+;	ld hl,title_buffer_flag+144*8*5
+;	ld de,CLRTBL2+256*8*2 + 112*8
+;	pop bc
+;	jp fast_LDIRVM
+	ld hl,CLRTBL2+112*8
+	ld bc,144*8
+	ld a,#0f
+	push bc
+	call FILVRM
 	pop bc
-	jp fast_LDIRVM
-
+	ld hl,CLRTBL2+256*8 + 112*8
+	ld a,#0f
+	push bc
+	call FILVRM
+	pop bc
+	ld hl,CLRTBL2+256*8*2 + 112*8
+	ld a,#0f
+	jp FILVRM
 
 
 ;-----------------------------------------------
