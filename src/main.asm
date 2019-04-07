@@ -520,6 +520,8 @@ message_brain_games:
     db "BRAIN  GAMES"
 message_game_over:
     db "GAME  OVER"
+message_continue:
+    db "M - CONTINUE"
 
 message_press_space:
     db "PRESS  SPACE"
@@ -564,6 +566,8 @@ message_fastest_lap:
     db "FASTEST LAP!                            "
 message_race_over:
     db "YOUR CAR IS WRECKED! RACE OVER!!        "
+message_pause:
+    db "F1 - UNPAUSE,  ESC - QUIT               "
 
 ;-----------------------------------------------
 ; Game variables to be copied to RAM when a new game starts

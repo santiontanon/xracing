@@ -352,7 +352,7 @@ updateScoreboardDamage_green:
 ; checks if we have a message to display in the scoreboard, and displays it!
 scoreboard_update_message:
     ld a,(game_cycle)
-    and #01
+    and #03
     ret nz
 
     ld hl,scoreboard_message_buffer

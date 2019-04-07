@@ -351,7 +351,7 @@ unpack_flag_patterns_to_VDP:
 
 	ld hl,title_buffer_flag
 	ld de,CHRTBL2+112*8
-	ld bc,144*8
+	ld bc,128*8
 	push bc
 	call fast_LDIRVM
 ;	ld hl,title_buffer_flag+144*8
@@ -360,7 +360,7 @@ unpack_flag_patterns_to_VDP:
 ;	push bc
 ;	call fast_LDIRVM
 
-	ld hl,title_buffer_flag+144*8
+	ld hl,title_buffer_flag+128*8
 	ld de,CHRTBL2+256*8 + 112*8
 	pop bc
 	push bc
@@ -371,7 +371,7 @@ unpack_flag_patterns_to_VDP:
 ;	push bc
 ;	call fast_LDIRVM
 
-	ld hl,title_buffer_flag+144*8*2
+	ld hl,title_buffer_flag+128*8*2
 	ld de,CHRTBL2+256*8*2 + 112*8
 	pop bc
 ;	push bc
@@ -382,17 +382,17 @@ unpack_flag_patterns_to_VDP:
 ;	jp fast_LDIRVM
 	ld hl,CLRTBL2+112*8
 	ld bc,144*8
-	ld a,#0f
+	ld a,#f0
 	push bc
 	call FILVRM
 	pop bc
 	ld hl,CLRTBL2+256*8 + 112*8
-	ld a,#0f
+	ld a,#f0
 	push bc
 	call FILVRM
 	pop bc
 	ld hl,CLRTBL2+256*8*2 + 112*8
-	ld a,#0f
+	ld a,#f0
 	jp FILVRM
 
 

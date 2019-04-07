@@ -102,8 +102,19 @@ updatePlayerCar_pause:
 	ei
 	ld hl,SFX_menu_select
 	call play_SFX_with_high_priority
+    ld hl,message_pause
+    call scoreboard_trigger_message
 updatePlayerCar_pause_loop:
+    ld hl,game_cycle
+    inc (hl)
+	call scoreboard_update_message
 	halt
+	halt
+	;; check if ESC is pressed:
+    ld a,#07
+    call SNSMAT
+    bit 2,a
+	jr z,updatePlayerCar_pause_quit
 	call checkInput
 	bit INPUT_PAUSE_BIT,a
 	jr z,updatePlayerCar_pause_loop
@@ -113,6 +124,11 @@ updatePlayerCar_pause_loop:
 	pop af
 	ld (MUSIC_play),a
 	ret
+
+updatePlayerCar_pause_quit:
+	pop af	; simulate ret
+	jp gameover_screen
+
 
 
 ;-----------------------------------------------
