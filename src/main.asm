@@ -565,7 +565,7 @@ message_final_lap:
 message_fastest_lap:
     db "FASTEST LAP!                            "
 message_race_over:
-    db "YOUR CAR IS WRECKED! RACE OVER!!        "
+    db "YOUR CAR IS WRECKED!                    "
 message_pause:
     db "F1 - UNPAUSE,  ESC - QUIT               "
 
