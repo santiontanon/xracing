@@ -4,7 +4,13 @@ Download latest compiled ROMs (v1.0.5) from: https://github.com/santiontanon/xra
 
 You will need an MSX emulator to play the game on a PC, for example OpenMSX: http://openmsx.org
 
-Or **you can play directly on your browser** thanks to Arnaud De Klerk (TFH)!: https://www.file-hunter.com/MSXdev/index.php?id=xracing
+
+## Play on your Browser
+
+https://www.file-hunter.com/MSXdev/index.php?id=xracing
+
+Thanks to Arnaud De Klerk (TFH) for setting it up in WebMSX and hosting it!
+
 
 ## Introduction
 
