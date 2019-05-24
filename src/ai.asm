@@ -12,16 +12,26 @@ updateAICars:
 ;-----------------------------------------------
 ; drives an opponent car around the track
 car_ai_update:
-	ld a,(ix+CAR_STRUCT_TILE_UNDERNEATH)
-	cp TERRAIN_GRASS
-	jp p,car_ai_update_out_of_track
-car_ai_update_within_track:
-	ld (ix+CAR_STRUCT_OUT_OF_TRACK_TIMER),0
+;	ld a,(ix+CAR_STRUCT_TILE_UNDERNEATH)
+;	cp TERRAIN_GRASS
+;	jp p,car_ai_update_out_of_track
+;car_ai_update_within_track:
+;	ld (ix+CAR_STRUCT_OUT_OF_TRACK_TIMER),0
+;	jr car_ai_update_after_respawn
+;car_ai_update_out_of_track:
+;	inc (ix+CAR_STRUCT_OUT_OF_TRACK_TIMER)
+;	ld a,(ix+CAR_STRUCT_OUT_OF_TRACK_TIMER)
+
+	ld a,(ix+CAR_STRUCT_SPEED)
+	cp 4
+	jp m,car_ai_zero_speed	; speed lower than 8 kph
+car_ai_non_zero_speed
+	ld (ix+CAR_STRUCT_COLLISION_TIMER),0
 	jr car_ai_update_after_respawn
-car_ai_update_out_of_track:
-	inc (ix+CAR_STRUCT_OUT_OF_TRACK_TIMER)
-	ld a,(ix+CAR_STRUCT_OUT_OF_TRACK_TIMER)
-	cp 64
+car_ai_zero_speed:
+	inc (ix+CAR_STRUCT_COLLISION_TIMER)
+	ld a,(ix+CAR_STRUCT_COLLISION_TIMER)
+	cp 32
 	call p,car_ai_respawn
 car_ai_update_after_respawn:
 
@@ -167,6 +177,11 @@ update_car_race_position_next_waypoint:
 ;-----------------------------------------------
 ; respawn an AI car in the road in a proper position to continue racing
 car_ai_respawn:
+	xor a
+	; prevent any other car from spawning on the same cycle:
+	ld (opponent_car2_struct+CAR_STRUCT_COLLISION_TIMER),a
+	ld (opponent_car3_struct+CAR_STRUCT_COLLISION_TIMER),a
+	ld (opponent_car4_struct+CAR_STRUCT_COLLISION_TIMER),a
 	; get the next waypoint:
 	ld hl,track_waypoints
 	ld a,(ix+CAR_STRUCT_NEXT_WAYPOINT)

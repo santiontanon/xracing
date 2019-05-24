@@ -31,9 +31,9 @@ title_screen:
 	ld hl,title_song_pletter
     ld de,music_buffer
     call pletter_unpack_from_page0
+
     ld a,5
     call play_song
-
 
 	; scroll the flag from the right:
 	xor a

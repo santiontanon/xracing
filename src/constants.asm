@@ -174,7 +174,7 @@ CAR_STRUCT_NEXT_WAYPOINT:	equ 11
 CAR_STRUCT_ACCELERATION:		equ 12
 CAR_STRUCT_ACCELERATION_STATE:	equ 13
 CAR_STRUCT_RACE_PROGRESS:		equ 14	; this in creases by one each time a car passes a checkpoint
-CAR_STRUCT_OUT_OF_TRACK_TIMER:	equ 15	; only used by the opponent cars, to determine when to respawn
+CAR_STRUCT_COLLISION_TIMER:		equ 15	; only used by the opponent cars, to determine when to respawn
 CAR_STRUCT_CAR_MODEL_PTR:		equ 16
 CAR_STRUCT_SHIFT_UP_SPEED:		equ 18
 

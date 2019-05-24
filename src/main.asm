@@ -790,10 +790,10 @@ player_car_next_waypoint:   ds virtual 1
 player_car_acceleration:        ds virtual 1    ; these two variables control the rate at which this particular car accelerates (used to
 player_car_acceleration_state:  ds virtual 1    ; set the difficulty level of each opponeng car, not used for the player car)
 player_car_race_progress:       ds virtual 1
-player_car_explosion_timer:     ds virtual 1    ; only used for the player car, the opponent cars store here the "out of track timer"
+player_car_explosion_timer:     ds virtual 1    ; only used for the player car, the opponent cars store here the "collision timer"
 player_car_model_ptr:           ds virtual 2
 player_car_shift_up_speed:      ds virtual 1    ; speed at which auto gears will shift up to high gear
-opponent_car2_struct: ds virtual CAR_STRUCT_SIZE
+opponent_car2_struct: ds virtual CAR_STRUCT_SIZE 
 opponent_car3_struct: ds virtual CAR_STRUCT_SIZE
 opponent_car4_struct: ds virtual CAR_STRUCT_SIZE
 

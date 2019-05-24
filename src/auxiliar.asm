@@ -251,7 +251,9 @@ pletter_unpack_from_page0:
     call SETGAMEPAGE0
     pop de
     pop hl
+
     call pletter_unpack
+
     call RESTOREBIOS
     ei  ; since these functions disable interrupts    
     ret

@@ -1039,13 +1039,21 @@ update_chasis_damage_side_collision:
 ; - A: car in question
 ; - H: adjustment to the speed that will be made
 check_collision_with_car_chasis_damage:
-	or a
-	ret nz
+	ld l,a	
+
+	ld a,h
+	call a_absolute_value
+	cp 4	; threshold of speed difference to produce sound
+	ret m
 
 	push hl
 	ld hl,SFX_collision_soft
 	call play_ingame_SFX
 	pop hl
+
+	ld a,l
+	or a
+	ret nz
 
 	ld a,h
 	call a_absolute_value
